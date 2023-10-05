@@ -29,13 +29,13 @@ const RegistrationScreen = ({ changeScrenn }) => {
 
   const register = () => {
     if (!login || !mail || !password) {
-      alert("Enter all data pleace!!!");
+      alert("Введіть ваші дані");
       return;
     }
     console.log(`Login: ${login}, Email: ${mail}, Password: ${password}`);
   };
 
-  const passwShow = () => alert(`Your password is: ${password}`);
+  const passwShow = () => alert(`Ваш пароль: ${password}`);
 
   return (
     <KeyboardAvoidingView
@@ -51,25 +51,25 @@ const RegistrationScreen = ({ changeScrenn }) => {
             ></ImageBackground>
           </TouchableOpacity>
         </View>
-        <Text style={styles.title}>Registration</Text>
+        <Text style={styles.title}>Реєстрація</Text>
 
         <TextInput
           style={styles.inputLogin}
-          placeholder="Login"
+          placeholder="Логін"
           inputMode="text"
           value={login}
           onChangeText={handleLogin}
         />
         <TextInput
           style={styles.inputMailPassw}
-          placeholder="Email address"
+          placeholder="Адреса електронної пошти"
           inputMode="email"
           value={mail}
           onChangeText={handleMail}
         />
         <TextInput
           style={styles.inputMailPassw}
-          placeholder="Password"
+          placeholder="Пароль"
           secureTextEntry={true}
           value={password}
           onChangeText={handlePassword}
@@ -80,7 +80,7 @@ const RegistrationScreen = ({ changeScrenn }) => {
           activeOpacity={0.5}
           onPress={passwShow}
         >
-          <Text style={styles.passwShowText}>Show</Text>
+          <Text style={styles.passwShowText}>Показати</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -88,7 +88,7 @@ const RegistrationScreen = ({ changeScrenn }) => {
           activeOpacity={0.5}
           onPress={register}
         >
-          <Text style={styles.registerButtonText}>Register</Text>
+          <Text style={styles.registerButtonText}>Зареєстуватися</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -96,9 +96,7 @@ const RegistrationScreen = ({ changeScrenn }) => {
           activeOpacity={0.5}
           onPress={() => changeScrenn(0)}
         >
-          <Text style={styles.loginLinkText}>
-            Already have an account? Log in
-          </Text>
+          <Text style={styles.loginLinkText}>Вже є акаунт? Увійти</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
