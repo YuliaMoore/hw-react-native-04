@@ -48,7 +48,7 @@ const LoginScreen = ({ changeScrenn }) => {
         />
         <TextInput
           style={styles.inputMailPassw}
-          placeholder="Password"
+          placeholder="Пароль"
           secureTextEntry={true}
           value={password}
           onChangeText={handlePassword}
