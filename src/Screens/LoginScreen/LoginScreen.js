@@ -9,8 +9,10 @@ import {
   Platform,
 } from "react-native";
 import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+const backImage = require("../../Source/Photo_BG.png");
 
-const LoginScreen = ({ changeScrenn }) => {
+const LoginScreen = ({ navigation }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,68 +25,82 @@ const LoginScreen = ({ changeScrenn }) => {
 
   const register = () => {
     if (!mail || !password) {
-      alert("Введіть ваші дані");
+      alert("Enter all data pleace!!!");
       return;
     }
-    console.log(`Email: ${mail}, Password: ${password}`);
+    navigation.navigate("Home", { screen: "PostsScreen" });
   };
 
-  const passwShow = () => alert(`Ваш пароль: ${password}`);
+  const passwShow = () => alert(`Your password is: ${password}`);
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS == "ios" ? "padding" : "height"}
-      style={styles.containerKeyB}
-    >
-      <View style={styles.container}>
-        <Text style={styles.title}>Увійти</Text>
-
-        <TextInput
-          style={styles.inputMailPassw}
-          placeholder="Адреса електронної пошти"
-          inputMode="email"
-          value={mail}
-          onChangeText={handleMail}
-        />
-        <TextInput
-          style={styles.inputMailPassw}
-          placeholder="Пароль"
-          secureTextEntry={true}
-          value={password}
-          onChangeText={handlePassword}
-        />
-
-        <TouchableOpacity
-          style={styles.passwShow}
-          activeOpacity={0.5}
-          onPress={passwShow}
+    <View style={styles.maincontainer}>
+      <ImageBackground source={backImage} style={styles.backImg}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+          style={styles.containerKeyB}
         >
-          <Text style={styles.passwShowText}>Показати</Text>
-        </TouchableOpacity>
+          <View style={styles.container}>
+            <Text style={styles.title}>Login</Text>
 
-        <TouchableOpacity
-          style={styles.registerButton}
-          activeOpacity={0.5}
-          onPress={register}
-        >
-          <Text style={styles.registerButtonText}>Увійти</Text>
-        </TouchableOpacity>
+            <TextInput
+              style={styles.inputMailPassw}
+              placeholder="Email address"
+              inputMode="email"
+              value={mail}
+              onChangeText={handleMail}
+            />
+            <TextInput
+              style={styles.inputMailPassw}
+              placeholder="Password"
+              secureTextEntry={true}
+              value={password}
+              onChangeText={handlePassword}
+            />
 
-        <TouchableOpacity
-          style={styles.loginLink}
-          activeOpacity={0.5}
-          onPress={() => changeScrenn(1)}
-        >
-          <Text style={styles.loginLinkText}>
-            Немає акаунту? Зареєструватися
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
+            <TouchableOpacity
+              style={styles.passwShow}
+              activeOpacity={0.5}
+              onPress={passwShow}
+            >
+              <Text style={styles.passwShowText}>Show</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.registerButton}
+              activeOpacity={0.5}
+              onPress={register}
+            >
+              <Text style={styles.registerButtonText}>Login</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.loginLink}
+              activeOpacity={0.5}
+              onPress={() => navigation.navigate("Registratione")}
+            >
+              <Text style={styles.loginLinkText}>
+                Don't have an account? Register
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </ImageBackground>
+      <StatusBar style="auto" />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  maincontainer: {
+    flex: 1,
+    alignItems: "center",
+  },
+  backImg: {
+    flex: 1,
+    justifyContent: "flex-end",
+    width: "100%",
+  },
   container: {
     backgroundColor: "#FFFFFF",
     alignItems: "center",
