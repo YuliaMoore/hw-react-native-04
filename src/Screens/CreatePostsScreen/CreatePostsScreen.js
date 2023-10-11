@@ -21,20 +21,20 @@ const CreatePost = ({ navigation }) => {
           <FontAwesome name="camera" size={24} color="black" />
         </TouchableOpacity>
       </View>
-      <Text style={styles.postImgText}>Add photo</Text>
+      <Text style={styles.postImgText}>Завантажте фото</Text>
       <View style={styles.postForm}>
         <TextInput
           style={styles.postName}
-          placeholder="Title..."
+          placeholder="Назва..."
           inputMode="text"
         />
         <TextInput
           style={styles.postName}
-          placeholder="Location"
+          placeholder="Місцевість..."
           inputMode="navigation"
         />
         <TouchableOpacity style={styles.postButton} activeOpacity={0.5}>
-          <Text style={styles.postButtonText}>Publicate</Text>
+          <Text style={styles.postButtonText}>Опубліковати</Text>
         </TouchableOpacity>
       </View>
     </View>

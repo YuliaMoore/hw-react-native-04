@@ -41,18 +41,18 @@ const LoginScreen = ({ navigation }) => {
           style={styles.containerKeyB}
         >
           <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>Увійти</Text>
 
             <TextInput
               style={styles.inputMailPassw}
-              placeholder="Email address"
+              placeholder="Адреса електронної пошти"
               inputMode="email"
               value={mail}
               onChangeText={handleMail}
             />
             <TextInput
               style={styles.inputMailPassw}
-              placeholder="Password"
+              placeholder="Пароль"
               secureTextEntry={true}
               value={password}
               onChangeText={handlePassword}
@@ -63,7 +63,7 @@ const LoginScreen = ({ navigation }) => {
               activeOpacity={0.5}
               onPress={passwShow}
             >
-              <Text style={styles.passwShowText}>Show</Text>
+              <Text style={styles.passwShowText}>Показати</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -71,7 +71,7 @@ const LoginScreen = ({ navigation }) => {
               activeOpacity={0.5}
               onPress={register}
             >
-              <Text style={styles.registerButtonText}>Login</Text>
+              <Text style={styles.registerButtonText}>Увійти</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -80,7 +80,7 @@ const LoginScreen = ({ navigation }) => {
               onPress={() => navigation.navigate("Registratione")}
             >
               <Text style={styles.loginLinkText}>
-                Don't have an account? Register
+                Немає акаунту? Зареєструватися
               </Text>
             </TouchableOpacity>
           </View>
